@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+100.times do |i|
+  @item = Item.create(name: "item #{i}", due_date: Time.now, amount_paid: rand(1000), amount_due: rand(1000))
+end

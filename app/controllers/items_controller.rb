@@ -1,11 +1,19 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :xlsl, :ods, :csv
 
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
-  end
+     @items = Item.order(created_at: :asc)
+
+     respond_to do |format|
+      format.html
+      format.xlsx { render xlsx: @items }
+      format.ods { render ods: @items }
+      format.csv{ render csv: @items }
+    end
+   end
 
   # GET /items/1
   # GET /items/1.json
