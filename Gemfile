@@ -49,7 +49,7 @@ end
 group :production do
   gem 'rails_12factor'
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
+  gem 'pg'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
